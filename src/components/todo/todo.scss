@@ -1,0 +1,116 @@
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding:0;
+    width: 100%;
+}
+.todo-details {
+    display:flex;
+    flex-direction:column;
+
+    header {
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        padding:.5em 1em;
+    }
+
+    .item {
+        flex:1;
+        padding: 1em;
+    }
+
+}
+
+.todo {
+  h4{
+    font-size: 18px;
+    display: inline-block;
+    border-bottom: 1px solid darkblue;
+    margin-bottom: 15px;
+    margin-right: 6px;
+  }
+
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    margin: 2em;
+
+    form {
+
+        display:flex;
+        flex-direction:column;
+        margin-right: 2em;
+        border: 2px double rgba(219, 200, 200, 0.6);
+border-radius: 4px;
+        padding: 3px;
+        h3{
+margin-left: 80px;
+            display: inline-block;
+            border-bottom: 1px solid darkblue;
+        }
+        label {
+            display: flex;
+            flex-direction:column;
+            margin-bottom: 1em;
+        }
+    }
+
+    ul {
+        list-style-type:none;
+        margin:0;
+        padding:0;
+
+        li {
+
+            align-items: center;
+            display:flex;
+            flex-direction:row;
+            font-size: .75em;
+            margin: .75em .5em;
+
+            &.complete-true {
+              span {
+                background: pink;
+                text-decoration:line-through;
+                &:hover {
+                   background: seagreen;
+                }
+              }
+            }
+
+            span {
+                background: #e0e0e0;
+                &:hover {
+                    background: pink;
+                }
+            }
+             span {
+                 border: .5px solid #eee;
+                 display:inline-block;
+               cursor: pointer;
+                 padding: .2em .25em;
+                 width: 400px;
+             }
+            input{
+                margin-top:2px ;
+            }
+
+            button {
+                cursor:pointer;
+                padding:  2px 5px 2px 2px;
+                //padding-right: 3px;
+                //margin:  .2em;
+            }
+
+        }
+    }
+    //.complete-true{
+    //    display: none;
+    //}
+
+    .edit{
+        display: none;
+    }
+}

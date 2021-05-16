@@ -46,7 +46,7 @@ function FormF (props) {
     <span>Assigned To</span>
       <Form.Control type="text" name="assignee" placeholder="Assigned To" onChange={handleInputChange} />
        </Form.Label>
-                          <Button variant="outline-primary">Add Item</Button>
+                          <Button type="submit" variant="outline-primary">Add Item</Button>
               </Col>
 
           </Form.Group>

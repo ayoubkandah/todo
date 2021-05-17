@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonGroup,Button} from 'react-bootstrap';
+import { ButtonGroup,Button,Jumbotron} from 'react-bootstrap';
 
 function ToDoList(props){
 
@@ -26,13 +26,13 @@ function toggleVis(id){
             className={`complete-${item.complete}`}
             key={item._id}
           >
-            <span   key={item._id}>
-<p onClick={()=>props.handleComplete(item._id)}>  {item.text}</p>
+            <Jumbotron   key={item._id}>
+<h4 onClick={()=>props.handleComplete(item._id)}>  {item.text}</h4>
 
-                <p onClick={()=>props.handleComplete(item._id)}>
+                <h6 onClick={()=>props.handleComplete(item._id)}>
               difficulty:- {item.difficulty} , assignee:- {item.assignee}
-            </p>
-                <p onClick={()=>props.handleComplete(item._id)}>{item.time}</p>
+            </h6>
+                <h6 onClick={()=>props.handleComplete(item._id)}>{item.time}</h6>
             <ButtonGroup>
               <Button variant="outline-danger" onClick={()=> props.delete(item._id)}>Delete</Button>
               <Button variant="outline-info" onClick={()=>toggleVis(item._id)}>Edit</Button>
@@ -45,7 +45,7 @@ function toggleVis(id){
                 <input type="submit" value="Save" id=""/>
                 </form>
 
-                </span>
+                </Jumbotron>
           </li>
         ))}
       </ul>

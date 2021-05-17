@@ -1,68 +1,63 @@
 import React, { useEffect, useState } from 'react';
 import TodoForm from '../form';
 import TodoList from '../list';
+import axios from "axios"
 
+import useAjax from "../../Hooks/useAjax";
 import '../todo/todo.scss';
 
 const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
 
-
 const ToDo = () => {
 
+const getData=useAjax(_getTodoItems,"get")
+  const [Post]=useAjax(_addItem,"post")
   const [list, setList] = useState([]);
+  const [eed,complete]=useAjax(_toggleComplete,"put",list)
+  const [dd,ee,Delete]=useAjax(DeleteItem,"delete",list)
+  const [ddd,eeee,d,Put]=useAjax(EditItem,"delete",list)
 
-  const _addItem = (item) => {
-    item.due = new Date();
-    fetch(todoAPI, {
-      method: 'post',
-      mode: 'cors',
-      cache: 'no-cache',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(item)
+  function _addItem  (data)  {
+
+    setList([...list, data.data])
+
+  };
+
+  function _toggleComplete ( data,item) {
+console.log(data)
+
+          setList(list.map(listItem => listItem._id === item._id ? data.data: listItem));
+
+  };
+  function  EditItem(id,task,difficulty,assignee) {
+
+    let Arr=list.map((ele,ind)=>{
+      if(id===ele._id.toString()){
+        ele.text=task
+        ele.difficulty=difficulty
+        ele.assignee=assignee
+        let date=Date.now()
+        let today=new Date(date)
+        ele.time=today.toUTCString();
+        return (ele)
+      }else{return(ele)}
     })
-      .then(response => response.json())
-      .then(savedItem => {
-        setList([...list, savedItem])
-      })
-      .catch(console.error);
-  };
-
-  const _toggleComplete = id => {
-
-    let item = list.filter(i => i._id === id)[0] || {};
-
-    if (item._id) {
-
-      item.complete = !item.complete;
-
-      let url = `${todoAPI}/${id}`;
-
-      fetch(url, {
-        method: 'put',
-        mode: 'cors',
-        cache: 'no-cache',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(item)
-      })
-        .then(response => response.json())
-        .then(savedItem => {
-          setList(list.map(listItem => listItem._id === item._id ? savedItem : listItem));
-        })
-        .catch(console.error);
-    }
-  };
-
-  const _getTodoItems = () => {
-    fetch(todoAPI, {
-      method: 'get',
-      mode: 'cors',
+    setList(Arr)
+  }
+  function _getTodoItems (data){
+    setList(data.data.results)
+      // .catch(console.error);
+  }
+  function DeleteItem(id) {
+    let Arr=list.filter((ele,ind)=>{
+      if(id===ele._id){
+        return false
+      }else{return(ele)}
     })
-      .then(data => data.json())
-      .then(data => setList(data.results))
-      .catch(console.error);
-  };
+    console.log(Arr)
+    setList(Arr)
+  }
 
-  useEffect(_getTodoItems, []);
 
   return (
     <>
@@ -75,13 +70,15 @@ const ToDo = () => {
       <section className="todo">
 
         <div>
-          <TodoForm handleSubmit={_addItem} />
+          <TodoForm handleSubmit={Post} />
         </div>
 
         <div>
           <TodoList
             list={list}
-            handleComplete={_toggleComplete}
+            handleComplete={complete}
+            delete={Delete}
+            edit={Put}
           />
         </div>
       </section>

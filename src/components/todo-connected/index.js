@@ -6,9 +6,8 @@ import axios from "axios"
 import useAjax from "../../Hooks/useAjax";
 import '../todo/todo.scss';
 
-const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
-
 const ToDo = () => {
+  /* eslint-disable no-alert */
 
 const getData=useAjax(_getTodoItems,"get")
   const [Post]=useAjax(_addItem,"post")

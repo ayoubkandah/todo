@@ -6,13 +6,11 @@ function FormF (props) {
     const diffInput = useForm(handleInputChange, 'range', "difficulty" );
     const assignee = useForm(handleInputChange, 'text', "assignee" );
     const [Item,setItem]=useState({})
-
   // console.log(Item)
   function handleInputChange (e)   {
 // console.log(e.target.name)
     setItem(  {...Item, [e.target.name]:e.target.value } );
-  };
-
+  }
   const handleSubmit = (e) => {
           e.preventDefault();
       // console.log()
@@ -25,11 +23,8 @@ alert("your item not entered ")
    setItem(item);
       }
   };
-
-
     return (
       <>
-
           <Form onSubmit={handleSubmit}>
               <fieldset>
                   <h3> Add Item</h3>
@@ -46,14 +41,12 @@ alert("your item not entered ")
    Difficulty Rating
       <Form.Control min="1" max="5" {...diffInput} />
        </Form.Label>
-
                       <Form.Label>
     <span>Assigned To</span>
       <Form.Control {...assignee} />
        </Form.Label>
-                          <Button type="submit" variant="outline-primary">Add Item</Button>
+          <Button type="submit" variant="outline-primary">Add Item</Button>
               </Col>
-
           </Form.Group>
               </fieldset>
   </Form>

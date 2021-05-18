@@ -74,30 +74,30 @@ input {
             font-size: .75em;
             margin: .75em .5em;
 
-            &.complete-true {
-              .jumbotron {
-                background: pink;
-                text-decoration:line-through;
-                &:hover {
-                   background: seagreen;
-                  color :white;
-                }
-              }
-            }
-
-          .jumbotron {
-                background: #e0e0e0;
-                &:hover {
-                    background: pink;
-                }
-            }
-          .jumbotron {
-                 border: .5px solid #eee;
-                 display:inline-block;
-               cursor: pointer;
-                 padding: .2em .25em;
-                 width: 400px;
-             }
+          //  &.complete-true {
+          //    .jumbotron {
+          //      background: pink;
+          //      text-decoration:line-through;
+          //      &:hover {
+          //         banckground: seagreen;
+          //        color :white;
+          //      }
+          //    }
+          //  }
+          //
+          //.jumbotron {
+          //      background: #e0e0e0;
+          //      &:hover {
+          //          background: pink;
+          //      }
+          //  }
+          //.jumbotron {
+          //       border: .5px solid #eee;
+          //       display:inline-block;
+          //     cursor: pointer;
+          //       padding: .2em .25em;
+          //       width: 400px;
+          //   }
             input{
                 margin-top:2px ;
             }
@@ -125,5 +125,43 @@ input {
 button {
   margin-top: 5px;
 }
+
+  }
+
+  #complete{
+    cursor: pointer;
+    display: inline-block;
+    color:white;
+    background: #f53131;
+    margin-right: 10px;
+    border: 1px solid red;
+    padding: 3px;
+
+    border-radius: 5px;
+  }
+  #pending{
+    cursor: pointer;
+    margin-right: 10px;
+    border: 1px solid #8bd714;
+    border-radius: 5px;
+padding: 3px;
+    display: inline-block;
+background:#8bd714 ;
+    color: white;
+  }
+  #ass{
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 8px;
+  }
+#text{
+  cursor: pointer;
+  font-size: 20px; display: inline-block;
+}
+  #dif{
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 90px;
+
   }
 }

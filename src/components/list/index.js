@@ -21,17 +21,23 @@ function toggleVis(id){
     return (
       <ul>
         {props.list.map(item => (
-          <li
-            className={`complete-${item.complete}`}
-            key={item._id}
-          >
-            <Jumbotron   key={item._id}>
-<h4 onClick={()=>props.handleComplete(item._id)}>  {item.text}</h4>
+          <li>
 
-                <h6 onClick={()=>props.handleComplete(item._id)}>
-              difficulty:- {item.difficulty} , assignee:- {item.assignee}
-            </h6>
-                <h6 onClick={()=>props.handleComplete(item._id)}>{item.time}</h6>
+
+            <Jumbotron   key={item._id}>
+                {item.complete ? <>
+                    <p id="complete">Complete</p>
+                </> : <> <p id="pending">Pending</p> </>}
+
+
+                <p id="ass" onClick={()=>props.handleComplete(item._id)}>
+              {item.assignee}
+            </p>
+                <br/>
+                <p id="text" onClick={()=>props.handleComplete(item._id)}>  {item.text}</p>
+                <br/>
+                <p id="dif"> difficulty {item.difficulty} </p>
+                <p onClick={()=>props.handleComplete(item._id)}>{item.time}</p>
             <ButtonGroup>
               <Button variant="outline-danger" onClick={()=> props.delete(item._id)}>Delete</Button>
               <Button variant="outline-info" onClick={()=>toggleVis(item._id)}>Edit</Button>

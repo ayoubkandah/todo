@@ -75,7 +75,7 @@ input {
             margin: .75em .5em;
 
             &.complete-true {
-              span {
+              .jumbotron {
                 background: pink;
                 text-decoration:line-through;
                 &:hover {
@@ -84,13 +84,13 @@ input {
               }
             }
 
-            span {
+          .jumbotron {
                 background: #e0e0e0;
                 &:hover {
                     background: pink;
                 }
             }
-             span {
+          .jumbotron {
                  border: .5px solid #eee;
                  display:inline-block;
                cursor: pointer;

@@ -72,7 +72,8 @@ function numberPage(e){
 
     }
     function ToggleVis(id) {
-        for (let x = 0; x < props.list.length; x++) {
+        console.log(id)
+        for (let x = startpost; x < limitpost; x++) {
             if (id === props.list[x]._id) {
                 if (document.getElementById(id).style.display === "block") {
                     document.getElementById(id).style.display = "none";
@@ -80,7 +81,7 @@ function numberPage(e){
                     document.getElementById(id).style.display = "block";
                 }
             } else {
-                document.getElementById(`${props.list[x]._id}`).style.display = "none";
+                document.getElementById(`${list[x]._id}`).style.display = "none";
             }
         }
 

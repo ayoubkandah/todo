@@ -1,11 +1,14 @@
-import {useState} from 'react';
+import {useContext, useState} from 'react';
 import {Form,Col,Button} from "react-bootstrap"
 import useForm from "../../Hooks/Form";
+import {ListContext} from "../../context/data";
 function FormF (props) {
+    const toggleC=useContext(ListContext)
     const textInput = useForm(handleInputChange,'text','text' );
     const diffInput = useForm(handleInputChange, 'range', "difficulty" );
     const assignee = useForm(handleInputChange, 'text', "assignee" );
     const [Item,setItem]=useState({})
+
   // console.log(Item)
   function handleInputChange (e)   {
 // console.log(e.target.name)
@@ -23,8 +26,19 @@ alert("your item not entered ")
    setItem(item);
       }
   };
+    function perPage(e){
+        // console.log(typeof e.target.value)
+        let num= parseInt(e.target.value)
+        toggleC.setperPage(num)
+    }
     return (
       <>
+          <Button id={ "button-"+toggleC.completeT.toString()} variant="success" onClick={()=>{toggleC.setCompleteT(!toggleC.completeT)}}>S/H Complete</Button>
+<Form>
+    <Form.Label>  Number Item Per Page
+        <Form.Control defaultValue="3" type="number" min="3" max="7" placeholder="number of post per page 3-7"  onChange={perPage}/>
+    </Form.Label>
+</Form>
           <Form onSubmit={handleSubmit}>
               <fieldset>
                   <h3> Add Item</h3>
@@ -41,6 +55,7 @@ alert("your item not entered ")
    Difficulty Rating
       <Form.Control min="1" max="5" {...diffInput} />
        </Form.Label>
+
                       <Form.Label>
     <span>Assigned To</span>
       <Form.Control {...assignee} />

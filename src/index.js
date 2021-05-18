@@ -2,11 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './app.js';
+import DataContext from "./context/data";
 
 function  Main(){
 
-    return <App />;
 
+    return(
+        <DataContext>
+        <App />
+        </DataContext>
+    )
 }
 
 const rootElement = document.getElementById('root');

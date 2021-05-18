@@ -28,7 +28,7 @@ body, html {
     font-size: 25px;
     display: inline-block;
     border-bottom: 1px solid darkblue;
-    margin-bottom: 15px;
+    margin-bottom: 1px;
     margin-right: 6px;
   }
 
@@ -121,7 +121,7 @@ input {
 
   .jumbotron{
 
-    padding:10px 30px 25px 20px;
+    padding:3px 30px 25px 20px;
 button {
   margin-top: 5px;
 }
@@ -163,5 +163,36 @@ background:#8bd714 ;
     display: inline-block;
     margin-left: 90px;
 
+  }
+
+   #button-false{
+    background: red;
+    color: white;
+     border-color: red;
+     box-shadow: none;
+
+   }
+
+  #button-true{
+    box-shadow: none;
+  }
+
+  .numberOfPage{
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 2px 0 2px;
+    padding: 0 6px 0 6px ;
+color: #0f72db;
+  }
+  #next-prev{
+    box-shadow: none;
+    display: inline-block;
+  }
+  #numbers{
+    display: inline-block;
+  }
+  #activeN{
+    background: #0069a9;
+    color: white;
   }
 }

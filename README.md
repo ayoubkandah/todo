@@ -1,17 +1,15 @@
 # To Do List
-make limit post in every page and make next and prev page
+creating auth not from the starter code 
 
-make setting for number of item per page ,
+make a login form with authorization functions 
 
-make setting for show/hidden complete item 
+make a signup form 
 
-convert using props to useContext in the list 
+make a capabelities for the user who logged 
 
-remove all function in todo-connected and make everything 
-in hooks and use Context
+make a logout function
 
-In Phase 3, we’d like to extend the functionality of the application by potentially allowing users to set a few configuration options to change how the application behaves. The user stories from Phases 1 and 2 remain unchanged. For this phase, we are now adding the following new user stories.
-
+ we’d like to extend the functionality of the application by requiring users be logged in to view items and also restrict access based on user type. The user stories from Phases 1, 2 and 3 remain unchanged. For this phase, we are now adding the following new user stories.
 
 # [netlify](https://ak94-lab33.netlify.app/)
 
@@ -19,4 +17,4 @@ In Phase 3, we’d like to extend the functionality of the application by potent
 UML
 
 
-![uml](./lab33.png)
+![uml](./lab34.png)

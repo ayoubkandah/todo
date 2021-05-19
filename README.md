@@ -11,7 +11,7 @@ make a logout function
 
  we’d like to extend the functionality of the application by requiring users be logged in to view items and also restrict access based on user type. The user stories from Phases 1, 2 and 3 remain unchanged. For this phase, we are now adding the following new user stories.
 
-# [netlify](https://ak94-lab33.netlify.app/)
+# [netlify](https://ak94-finished.netlify.app/)
 
 
 UML

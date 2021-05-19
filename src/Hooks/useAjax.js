@@ -1,8 +1,10 @@
 import { useEffect , useContext} from 'react';
 import {ListContext} from "../context/data";
 import axios from "axios";
+import {LoggedContext} from "../context/data";
 const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
 const useAjax = ( method) => {
+    const LogData=useContext(LoggedContext)
 const datalist=useContext(ListContext)
 // const [trigger,setTrigger]=useState(false)
     useEffect(() => {
@@ -43,7 +45,8 @@ const datalist=useContext(ListContext)
     }
 //
     function complete(id) {
-        if (method === "put") {
+        let arr=LogData.user.capabilities
+        if (method === "put"&&arr.includes("update")) {
 
             let item = datalist.list.filter(i => i._id === id)[0] || {};
             console.log(item)

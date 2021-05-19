@@ -2,8 +2,11 @@ import {useContext, useState} from 'react';
 import {Form,Col,Button} from "react-bootstrap"
 import useForm from "../../Hooks/Form";
 import {ListContext} from "../../context/data";
+import {LoggedContext} from "../../context/data";
 function FormF (props) {
+    const LogData=useContext(LoggedContext)
     const toggleC=useContext(ListContext)
+    let cap = LogData.user.capabilities
     const textInput = useForm(handleInputChange,'text','text' );
     const diffInput = useForm(handleInputChange, 'range', "difficulty" );
     const assignee = useForm(handleInputChange, 'text', "assignee" );
@@ -39,32 +42,35 @@ alert("your item not entered ")
         <Form.Control defaultValue="3" type="number" min="3" max="7" placeholder="number of post per page 3-7"  onChange={perPage}/>
     </Form.Label>
 </Form>
-          <Form onSubmit={handleSubmit}>
-              <fieldset>
-                  <h3> Add Item</h3>
+          {cap.includes("create")?<>
+              <Form onSubmit={handleSubmit}>
+                  <fieldset>
+                      <h3> Add Item</h3>
 
-              <Form.Group >
-                      <Col xs="auto">
-              <Form.Label>
-  <span>To Do Item</span>
-        <Form.Control
-            {...textInput}
-           />
-  </Form.Label>
-      <Form.Label>
-   Difficulty Rating
-      <Form.Control min="1" max="5" {...diffInput} />
-       </Form.Label>
+                      <Form.Group >
+                          <Col xs="auto">
+                              <Form.Label>
+                                  <span>To Do Item</span>
+                                  <Form.Control
+                                      {...textInput}
+                                  />
+                              </Form.Label>
+                              <Form.Label>
+                                  Difficulty Rating
+                                  <Form.Control min="1" max="5" {...diffInput} />
+                              </Form.Label>
 
-                      <Form.Label>
-    <span>Assigned To</span>
-      <Form.Control {...assignee} />
-       </Form.Label>
-          <Button type="submit" variant="outline-primary">Add Item</Button>
-              </Col>
-          </Form.Group>
-              </fieldset>
-  </Form>
+                              <Form.Label>
+                                  <span>Assigned To</span>
+                                  <Form.Control {...assignee} />
+                              </Form.Label>
+                              <Button type="submit" variant="outline-primary">Add Item</Button>
+                          </Col>
+                      </Form.Group>
+                  </fieldset>
+              </Form>
+          </>:null}
+
     </>
     )
 }

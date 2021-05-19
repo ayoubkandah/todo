@@ -4,7 +4,31 @@ body, html {
     margin: 0;
     padding:0;
     width: 100%;
+  #logout{
+    float: right;
+  }
+  #formL{
+    border: 2px double rgba(219, 200, 200, 0.6);
+width: 350px;
+    margin:0 auto;
+    margin-top: 30px;
+    padding:15px;
+    button{
+      margin-top: 15px;
+      margin-left: 15px;
+    }
+    input{
+      margin-bottom: 15px;
+    }
+  }
+  #inputL{
+    //margin-bottom: 15px;
+    //margin-left: 15px;
+    //width: 300px;
+  }
 }
+
+
 .todo-details {
     display:flex;
     flex-direction:column;
@@ -191,7 +215,7 @@ color: #0f72db;
   #numbers{
     display: inline-block;
   }
-  #activeN{
+  #activeN {
     background: #0069a9;
     color: white;
   }

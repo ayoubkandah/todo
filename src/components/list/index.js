@@ -1,7 +1,12 @@
 import React,{useContext,useState,useEffect}from 'react';
 import { ButtonGroup,Button,Jumbotron} from 'react-bootstrap';
 import {ListContext} from "../../context/data";
+import {LoggedContext} from "../../context/data";
+
 function ToDoList(props) {
+    const LogData=useContext(LoggedContext)
+    let cap=LogData.user.capabilities
+console.log(cap,"cccccccaaap")
     const toggleC = useContext(ListContext)
     let allpage,currentPage,allpost,limitpost,startpost;
 // console.log(props,"ddddddd")
@@ -118,9 +123,15 @@ function numberPage(e){
                                 <p id="dif"> difficulty {item.difficulty} </p>
                                 <p onClick={() => props.handleComplete(item._id)}>{item.time}</p>
                                 <ButtonGroup>
-                                    <Button variant="outline-danger" onClick={() => props.delete(item._id)}>Delete</Button>
-                                    <Button variant="outline-info" onClick={() => ToggleVis(item._id)}>Edit</Button>
-                                </ButtonGroup>
+                                    {cap.includes("delete")?<>
+                                        <Button variant="outline-danger" onClick={() => props.delete(item._id)}>Delete</Button>
+                                    </>: null}
+                                    {cap.includes("update")?<>
+
+                                        <Button variant="outline-info" onClick={() => ToggleVis(item._id)}>Edit</Button>
+                                    </>: null}
+
+                                        </ButtonGroup>
                                 <form className="edit null" id={item._id} onSubmit={props.edit}>
                                     <input type="hidden" defaultValue={item._id} id="idInput"/>
                                     <input type="text" name="task" defaultValue={item.text} id=""/>
